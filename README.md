@@ -21,41 +21,70 @@ Universal Commerce Protocol (UCP).
 
 ## Sample Implementations
 
-### Python
+### REST Bindings
+
+#### Python (REST)
 
 A reference implementation of a UCP Merchant Server using Python and FastAPI.
 
-- **Server**: [Documentation](rest/python/server/README.md)
-  - Located in `rest/python/server/`.
-  - Demonstrates capability discovery, checkout session management, payment
-    processing, and order lifecycle.
-  - Includes simulation endpoints for testing.
+*   **Server**: [Documentation](rest/python/server/README.md)
 
-- **Client**:
-  [Happy Path Script](rest/python/client/flower_shop/simple_happy_path_client.py)
-  - Located in `rest/python/client/`.
-  - A script demonstrating a full "happy path" user journey (discovery ->
-    checkout -> payment).
+    *   Located in `rest/python/server/`.
+    *   Demonstrates capability discovery, checkout session management, payment
+        processing, and order lifecycle.
+    *   Includes simulation endpoints for testing.
 
-### Node.js
+*   **Client**:
+    [Happy Path Script](rest/python/client/flower_shop/simple_happy_path_client.py)
+
+    *   Located in `rest/python/client/`.
+    *   A script demonstrating a full "happy path" user journey (discovery ->
+        checkout -> payment).
+
+#### Node.js (REST)
 
 A reference implementation of a UCP Merchant Server using Node.js, Hono, and
 Zod.
 
-- **Server**: [Documentation](rest/nodejs/README.md)
-  - Located in `rest/nodejs/`.
-  - Demonstrates implementation of UCP specifications for shopping,
-    checkout, and order management using a Node.js stack.
+*   **Server**: [Documentation](rest/nodejs/README.md)
+    *   Located in `rest/nodejs/`.
+    *   Demonstrates implementation of UCP specifications for shopping,
+        checkout, and order management using a Node.js stack.
 
-### A2A (Agent-to-Agent)
+### MCP Binding (Model Context Protocol)
 
-An AI-powered retail agent implementing UCP via the A2A protocol.
+A reference implementation using the [Model Context Protocol](https://modelcontextprotocol.io/)
+for AI agent integration.
 
-- **Cymbal Retail Agent**: [Documentation](a2a/README.md)
-  - Located in `a2a/business_agent/`.
-  - Demonstrates A2A protocol integration with UCP Extension.
-  - Includes AI-powered shopping assistant with Google ADK and Gemini.
-  - React-based chat client for user interaction.
+*   **Server & Client**: [Documentation](mcp/python/README.md)
+
+    *   Located in `mcp/python/`.
+    *   Exposes UCP shopping capabilities as MCP tools and resources.
+    *   Enables AI agents (Claude, GPT, etc.) to perform commerce operations.
+    *   Includes example client demonstrating complete shopping flow.
+
+**Key Features:**
+*   Tools for product discovery, checkout, payment, and order management
+*   Resources for read-only access to catalogs, sessions, and orders
+*   Prompts for reusable conversation patterns
+*   Support for stdio, HTTP, and SSE transports
+
+### A2A Binding (Agent-to-Agent)
+
+An example Business A2A Agent implementing the UCP Extension.
+
+*   **Agent & Client**: [Documentation](a2a/README.md)
+    *   Located in `a2a/`.
+    *   Demonstrates agent-to-agent communication for commerce operations.
+    *   Includes chat client for interactive testing.
+
+## Protocol Binding Comparison
+
+| Binding | Use Case | Transport | Best For |
+|---------|----------|-----------|----------|
+| REST | Traditional APIs | HTTP | Web/mobile apps, service integration |
+| MCP | AI Agents | stdio/HTTP/SSE | LLM integration, conversational commerce |
+| A2A | Agent Communication | HTTP | Multi-agent systems, automated workflows |
 
 ## Getting Started
 
